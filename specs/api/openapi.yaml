@@ -1,0 +1,24 @@
+openapi: 3.0.0
+info:
+  title: Internship Platform API
+  version: 1.0.0
+paths:
+  /auth/login:
+    post:
+      summary: Login with role-based JWT
+  /interns:
+    get:
+      summary: List all interns (Admin/Mentor only)
+    post:
+      summary: Create intern profile
+  /tasks:
+    get:
+      summary: Get tasks by intern/mentor
+    post:
+      summary: Assign task
+  /evaluations:
+    post:
+      summary: Submit evaluation
+  /standups:
+    post:
+      summary: Submit daily standup
