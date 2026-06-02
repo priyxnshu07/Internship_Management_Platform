@@ -29,10 +29,14 @@ app.use('/api/evaluations', require('./routes/evaluations'));
 app.use('/api/dashboard', require('./routes/dashboard'));
 
 // Initialize DB and Start Server
-db.initializeDB().then(() => {
-  app.listen(port, () => {
-    console.log(`Backend server running on port ${port}`);
+if (process.env.NODE_ENV !== 'test') {
+  db.initializeDB().then(() => {
+    app.listen(port, () => {
+      console.log(`Backend server running on port ${port}`);
+    });
+  }).catch(err => {
+    console.error('Failed to initialize database:', err);
   });
-}).catch(err => {
-  console.error('Failed to initialize database:', err);
-});
+}
+
+module.exports = app;
