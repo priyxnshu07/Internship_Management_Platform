@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run backend tests
-        run: cd backend && npm ci && npm test
+        run: cd backend && npm install && npm test
       - name: Run frontend tests
-        run: cd frontend && npm ci && npm test
+        run: cd frontend && npm install && npm test
 
   build-and-push:
     needs: test
