@@ -31,5 +31,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to k8s
-        run: kubectl apply -f k8s/
+      - name: Deploy to k8s (Dry Run)
+        run: kubectl apply -f k8s/ --dry-run=client
